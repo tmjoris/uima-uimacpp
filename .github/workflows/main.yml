@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: []
+  pull_request:
+    branches: []
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - # Checkout code
+        name: Checkout
+        uses: actions/checkout@v4
+
+      - # Build and push Docker image
+        name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          push: true
