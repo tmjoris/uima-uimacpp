@@ -1,0 +1,13 @@
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      -
+       name: Checkout
+       uses: actions/checkout@v4  # Checkout code, including Dockerfile
+      - 
+        name: Build and push Docker image
+        uses: docker/build-push-action@v3  # This would automatically use the Dockerfile in the UIMACPP repo to build and push the image 
+        with:
+          push: true
+          tags: apache/uimacpp:latest
